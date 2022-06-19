@@ -3,11 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MovieReview.Models
 {
-    public class User
+    public class ApplicationUser
     {
         public Guid id { get; set; }
 
-        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

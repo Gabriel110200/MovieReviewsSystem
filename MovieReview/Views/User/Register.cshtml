@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+@model MovieReview.Models.ApplicationUser
+
+
+
+
+<div class="container mt-5">
+
+    <form method="post">
+
+        <h1>Register Form</h1>
+
+        <div asp-validation-summary="All" class="text-danger">
+
+        </div>
+
+        <div class="mb-3">
+
+           <label for="Email" asp-for="Email" class="form-label">Email address</label>
+           <input type="email" asp-for="Email" class="form-control email" id="exampleFormControlInput1" placeholder="name@example.com">
+           <span asp-validation-for="Email" class="text-danger"></span>
+           
+        </div>
+        <div class="mb-3">
+           
+             <label for="exampleFormControlTextarea1" asp-for="Password" class="form-label">Password</label>
+             <input type="password" asp-for="Password" class="form-control" />
+             <span asp-validation-for="Password" class="text-danger"></span>
+            
+        </div>
+
+          <div class="mb-3">
+           
+             <label for="exampleFormControlTextarea1" asp-for="Password" class="form-label">Confirm Password</label>
+             <input type="password" asp-for="Password" class="form-control" />
+             <span asp-validation-for="Password" class="text-danger"></span>
+            
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+
+    </form>
+</div>
+

@@ -11,27 +11,30 @@ namespace MovieReview.Controllers
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
-        private User Model;
-
         public UserController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
 
-
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(ApplicationUser model)
         {
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser()
                 {
-                    UserName = Model.Email,
-                    Email = Model.Email
+                    UserName = model.Email,
+                    Email = model.Email
                 };
 
-                var result = await userManager.CreateAsync(user, Model.Password);
+                var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
@@ -53,10 +56,6 @@ namespace MovieReview.Controllers
 
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         /*
         public async Task<ActionResult> Register(ApplicationUser u)
