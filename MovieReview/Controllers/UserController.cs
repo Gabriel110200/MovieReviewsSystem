@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MovieReview.Models;
 using System.Threading.Tasks;
+using System;
 
 namespace MovieReview.Controllers
 {
@@ -39,7 +40,7 @@ namespace MovieReview.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, false);
-                    return RedirectToPage("Index");
+                    return RedirectToPage("/Index");
 
                 }
 
@@ -51,24 +52,14 @@ namespace MovieReview.Controllers
 
             }
 
-            return RedirectToPage("Index");
+            return View();
 
 
         }
 
 
-        /*
-        public async Task<ActionResult> Register(ApplicationUser u)
-        {
-            var user = new ApplicationUser { UserName = u.UserName, Email = u.Email };
-
-       
-
-           // var result = await UserManager<ApplicationUser>.CreateAsync(user, u.Password);
 
 
-        }
-        */
 
     }
 }

@@ -3,8 +3,7 @@
     ViewData["Title"] = "Register";
 }
 
-
-@model MovieReview.Models.ApplicationUser
+@model ApplicationUser
 
 
 
@@ -36,9 +35,9 @@
 
           <div class="mb-3">
            
-             <label for="exampleFormControlTextarea1" asp-for="Password" class="form-label">Confirm Password</label>
-             <input type="password" asp-for="Password" class="form-control" />
-             <span asp-validation-for="Password" class="text-danger"></span>
+             <label for="ConfirmPassword" asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+             <input type="password" asp-for="ConfirmPassword" class="form-control" />
+             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             
         </div>
         <div class="mb-3">
@@ -48,3 +47,6 @@
     </form>
 </div>
 
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
