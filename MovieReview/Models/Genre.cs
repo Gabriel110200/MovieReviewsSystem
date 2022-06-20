@@ -11,8 +11,9 @@ namespace MovieReview.Models
 
         public string Description { get; set; }
 
-        public Guid MovieId_FK { get; set; }
 
-        public IEnumerable<Movie> Movies { get; set; }
+        public IEnumerable<MovieGenre> Movies { get; set; }
+
+
     }
 }

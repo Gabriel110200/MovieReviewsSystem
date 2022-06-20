@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MovieReview.Models
@@ -17,7 +18,7 @@ namespace MovieReview.Models
         [Range(0, 10000)]
         public decimal Price { get; set; }
 
-
+        public IEnumerable<Genre> genres { get; set; }
 
     }
 }
