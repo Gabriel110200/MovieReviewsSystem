@@ -57,8 +57,28 @@ namespace MovieReview.Controllers
 
         }
 
+        public async Task<IActionResult> Login()
+        {
 
+            return View();
 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(ApplicationUser model)
+        {
+            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, true, lockoutOnFailure: true);
+
+            if (result.Succeeded)
+            {
+
+                return View();
+
+            }
+
+            return View();
+
+        }
 
 
     }
