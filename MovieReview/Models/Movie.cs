@@ -18,7 +18,7 @@ namespace MovieReview.Models
         [Range(0, 10000)]
         public decimal Price { get; set; }
 
-        public IEnumerable<Genre> genres { get; set; }
+        public IEnumerable<MovieGenre> genres { get; set; }
 
     }
 }
