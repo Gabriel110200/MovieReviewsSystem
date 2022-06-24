@@ -760,6 +760,7 @@ C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Movi
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\MovieReview.dll
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\MovieReview.pdb
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\MovieReview.genruntimeconfig.cache
-C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\User\Register.cshtml.g.cs
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Create.cshtml.g.cs
+C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Index.cshtml.g.cs
+C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs

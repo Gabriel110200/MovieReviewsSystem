@@ -6,20 +6,19 @@
 
 @model Genre;
 
-<h1>Cadastro de gênero</h1>
+<h1>Genre Register</h1>
 
-<form>
+<form method="post">
 
 
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Nome</label>
+      <input type="text" asp-for="Name" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
+      <textarea class="form-control" asp-for="Description" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Nome</label>
-  <input type="text" asp-for="Name" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
-  <textarea class="form-control" asp-for="Description" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-
-<input type="submit" />
+    <input type="submit" />
 </form>

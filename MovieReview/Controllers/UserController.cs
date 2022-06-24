@@ -19,13 +19,13 @@ namespace MovieReview.Controllers
 
         }
 
-        public IActionResult Register()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(ApplicationUser model)
+        public async Task<IActionResult> Create(ApplicationUser model)
         {
             if (ModelState.IsValid)
             {
