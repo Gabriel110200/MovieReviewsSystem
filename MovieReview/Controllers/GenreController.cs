@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieReview.Models;
+using System;
 
 namespace MovieReview.Controllers
 {
@@ -53,8 +54,21 @@ namespace MovieReview.Controllers
         // GET: GenreController/Edit/5
         public ActionResult Edit(int id)
         {
-            var genre = context.genre.FindAsync(id);
-            return View(genre);
+            try
+            {
+
+
+                var genre = context.genre.FindAsync(id);
+
+                if (genre == null) throw new Exception("Gênero não encontrado");
+
+                return View(genre);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // POST: GenreController/Edit/5

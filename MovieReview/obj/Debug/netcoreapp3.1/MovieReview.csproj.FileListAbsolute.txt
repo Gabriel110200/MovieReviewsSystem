@@ -762,3 +762,4 @@ C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Movi
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\MovieReview.genruntimeconfig.cache
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\User\Register.cshtml.g.cs
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
+C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Create.cshtml.g.cs
