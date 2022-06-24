@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MovieReview.Models;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MovieReview.Controllers
 {
@@ -17,20 +21,31 @@ namespace MovieReview.Controllers
         }
 
         // GET: GenreController
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+
+            var genreList = await context.genre.ToListAsync();
+
+            if (genreList == null) ViewData["NotEmpty"] = "No genre was registered";
+
+            return View(genreList);
         }
 
         // GET: GenreController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+
+            var genre = await context.genre.FindAsync(id);
+
+            if (genre == null) throw new Exception("Genre not found");
+
+            return View(genre);
         }
 
         // GET: GenreController/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -42,6 +57,7 @@ namespace MovieReview.Controllers
             try
             {
                 context.genre.Add(genre);
+                context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -53,8 +69,21 @@ namespace MovieReview.Controllers
         // GET: GenreController/Edit/5
         public ActionResult Edit(int id)
         {
-            var genre = context.genre.FindAsync(id);
-            return View(genre);
+            try
+            {
+
+
+                var genre = context.genre.FindAsync(id);
+
+                if (genre == null) throw new Exception("Gênero não encontrado");
+
+                return View(genre);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // POST: GenreController/Edit/5
