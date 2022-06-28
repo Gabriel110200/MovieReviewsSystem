@@ -40,6 +40,10 @@ namespace MovieReview.Controllers
         public async Task<IActionResult> Create(Movie movie)
         {
 
+            var genre = new GenreController();
+
+
+
             try
             {
 

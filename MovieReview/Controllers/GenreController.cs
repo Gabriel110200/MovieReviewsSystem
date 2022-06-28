@@ -20,6 +20,10 @@ namespace MovieReview.Controllers
 
         }
 
+        public GenreController()
+        {
+        }
+
         // GET: GenreController
         public async Task<ActionResult> Index()
         {
@@ -32,7 +36,7 @@ namespace MovieReview.Controllers
         }
 
         // GET: GenreController/Details/5
-        public async Task<ActionResult> Details(int id)
+        public async Task<ActionResult> Details(Guid id)
         {
 
             var genre = await context.genre.FindAsync(id);
