@@ -2,7 +2,7 @@
 An MVC project of an movie review website using .net core,migrations,identity and etc.
 
 
-##Summary of Requirements 
+## Summary of Requirements 
 
 Functional Requirements: 
 - Users should be able to log in,register, manage profile 
