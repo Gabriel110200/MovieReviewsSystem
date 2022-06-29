@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MovieReview.Interfaces;
 using MovieReview.Models;
 using System;
 using System.Linq;
@@ -11,11 +12,13 @@ namespace MovieReview.Controllers
     {
 
         private readonly AuthDbContext context;
+        private readonly IGenreServices genre;
 
-        public CompanyController(AuthDbContext context)
+        public CompanyController(AuthDbContext context, IGenreServices genre)
         {
 
             this.context = context;
+            this.genre = genre;
 
         }
 
