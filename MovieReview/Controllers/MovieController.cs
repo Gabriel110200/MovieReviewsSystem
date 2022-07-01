@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieReview.Interfaces;
+using MovieReview.IServices;
 using MovieReview.Models;
 using System;
 using System.Linq;
@@ -13,12 +14,14 @@ namespace MovieReview.Controllers
 
         private readonly AuthDbContext context;
         private readonly IGenreServices genreServices;
+        private readonly IMovieServices movieServices;
 
-        public CompanyController(AuthDbContext context, IGenreServices genreServices)
+        public CompanyController(AuthDbContext context, IGenreServices genreServices, IMovieServices movieServices)
         {
 
             this.context = context;
             this.genreServices = genreServices;
+            this.movieServices = movieServices;
 
         }
 
@@ -36,6 +39,8 @@ namespace MovieReview.Controllers
 
         public IActionResult Edit(Guid id)
         {
+
+            this.movieServices.Get(id);
             var movie = this.context.movies.FirstOrDefaultAsync(x => x.Id == id);
 
             return View(movie);
@@ -51,13 +56,8 @@ namespace MovieReview.Controllers
             {
 
 
-                if (ModelState.IsValid)
-                {
 
-                    context.movies.Add(movie);
-                    await context.SaveChangesAsync();
-
-                }
+                await this.movieServices.Create(movie);
 
                 return View();
 
@@ -76,15 +76,7 @@ namespace MovieReview.Controllers
             try
             {
 
-
-                var newMovie = this.context.movies.FirstOrDefaultAsync(x => x.Id == movie.Id);
-
-                if (newMovie == null) throw new Exception("Filme não existe");
-
-                this.context.Update(movie);
-
-                await context.SaveChangesAsync();
-
+                await this.movieServices.Update(movie);
                 return View();
 
             }

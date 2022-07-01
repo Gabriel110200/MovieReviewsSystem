@@ -15,9 +15,8 @@ namespace MovieReview.Services
 
         public GenreServices(AuthDbContext context)
         {
+
             this.context = context;
-
-
 
         }
 

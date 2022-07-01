@@ -12,9 +12,12 @@ namespace MovieReview.IServices
 
         public Task<bool> Create(Movie movie);
 
+        public Task<Movie> Get(Guid id);
+
         public Task<bool> Update(Movie movie);
 
         public Task<bool> Delete(Guid id);
+
 
 
 

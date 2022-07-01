@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MovieReview.Interfaces;
 using MovieReview.Models;
 using System;
 using System.Linq;
@@ -12,11 +13,13 @@ namespace MovieReview.Controllers
     {
 
         private readonly AuthDbContext context;
+        private readonly IGenreServices genreServices;
 
-        public GenreController(AuthDbContext context)
+        public GenreController(AuthDbContext context, IGenreServices genreServices)
         {
 
             this.context = context;
+            this.genreServices = genreServices;
 
         }
 
@@ -29,22 +32,11 @@ namespace MovieReview.Controllers
         {
 
             var genreList = await context.genre.ToListAsync();
-
             if (genreList == null) ViewData["NotEmpty"] = "No genre was registered";
 
             return View(genreList);
         }
 
-        // GET: GenreController/Details/5
-        public async Task<ActionResult> Details(Guid id)
-        {
-
-            var genre = await context.genre.FindAsync(id);
-
-            if (genre == null) throw new Exception("Genre not found");
-
-            return View(genre);
-        }
 
         // GET: GenreController/Create
         public ActionResult Create()
@@ -60,8 +52,7 @@ namespace MovieReview.Controllers
         {
             try
             {
-                context.genre.Add(genre);
-                context.SaveChanges();
+                this.genreServices.Create(genre);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -71,16 +62,13 @@ namespace MovieReview.Controllers
         }
 
         // GET: GenreController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet("[Controller]/[Action]/{id}")]
+        public async Task<ActionResult> Edit(Guid id)
         {
             try
             {
 
-
-                var genre = context.genre.FindAsync(id);
-
-                if (genre == null) throw new Exception("Gênero não encontrado");
-
+                var genre = await this.genreServices.Get(id);
                 return View(genre);
 
             }
@@ -93,11 +81,11 @@ namespace MovieReview.Controllers
         // POST: GenreController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Genre genre)
+        public async Task<ActionResult> Edit(Genre genre)
         {
             try
             {
-                context.genre.Update(genre);
+                await this.genreServices.Update(genre);
                 return RedirectToAction(nameof(Index));
             }
             catch

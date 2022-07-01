@@ -36,6 +36,20 @@ namespace MovieReview.Services
 
         }
 
+        public async Task<Movie> Get(Guid id)
+        {
+
+            var movies = await this.context.movies.FirstAsync(x => x.Id == id);
+            return movies;
+
+        }
+
+        public async Task<List<Movie>> List()
+        {
+            return await this.context.movies.ToListAsync();
+        }
+
+
         public async Task<List<Movie>> movies()
         {
             return await this.context.movies.ToListAsync();
@@ -67,10 +81,6 @@ namespace MovieReview.Services
 
         }
 
-        public async Task<List<Movie>> List()
-        {
-            return await this.context.movies.ToListAsync();
-        }
 
 
     }
