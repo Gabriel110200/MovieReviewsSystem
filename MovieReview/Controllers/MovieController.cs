@@ -12,13 +12,13 @@ namespace MovieReview.Controllers
     {
 
         private readonly AuthDbContext context;
-        private readonly IGenreServices genre;
+        private readonly IGenreServices genreServices;
 
-        public CompanyController(AuthDbContext context, IGenreServices genre)
+        public CompanyController(AuthDbContext context, IGenreServices genreServices)
         {
 
             this.context = context;
-            this.genre = genre;
+            this.genreServices = genreServices;
 
         }
 
@@ -27,9 +27,11 @@ namespace MovieReview.Controllers
             return View();
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var genres = await genreServices.List();
+
+            return View(genres);
         }
 
         public IActionResult Edit(Guid id)
@@ -42,8 +44,6 @@ namespace MovieReview.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Movie movie)
         {
-
-            var genre = new GenreController();
 
 
 

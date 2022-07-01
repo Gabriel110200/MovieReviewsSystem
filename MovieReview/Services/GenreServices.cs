@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieReview.Services
 {
-    public class GenreServices : IGenre
+    public class GenreServices : IGenreServices
     {
 
         private readonly AuthDbContext context;
