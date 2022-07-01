@@ -1,6 +1,14 @@
-# MovieReviewSystem
+# MovieReviewsSystem
 An MVC project of an movie review website using .net core,migrations,identity and etc.
 
+
+### Design Patterns Used: 
+
+- Dependency Injection 
+
+Why? 
+
+Abstract dependencies makes classes more independent. 
 
 ## Summary of Requirements 
 
@@ -13,16 +21,11 @@ Functional Requirements:
 - categories determine which movies appear on the front page 
 
 
-Nonfunctional Requirements: 
+## MVC Arquitecture 
 
+MovieReviews application doesn't require a lot of attention on front end, complexity only  lies  on the back end side of this application. Therefore, an
+MVC arquitecture seems to be the best option in this case. 
 
-
-
-### Design Patterns Used: 
-
-- Dependency Injection 
-
-Why? 
-
-Abstract dependencies makes classes more independent. 
+Modelos devidamente configurados para o entity framework para não faltar nenhuma configuração adicional ou qualquer erro pelo entity,
+caso ocorra o crescimento  da aplicação.
 
