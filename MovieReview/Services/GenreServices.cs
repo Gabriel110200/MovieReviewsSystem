@@ -25,7 +25,6 @@ namespace MovieReview.Services
         {
 
             var genreList = await context.genre.ToListAsync();
-
             return genreList;
         }
 
@@ -38,6 +37,31 @@ namespace MovieReview.Services
 
         }
 
+        public async Task<bool> Create(Genre genre)
+        {
 
+
+            context.genre.Add(genre);
+            await context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> Update(Genre genre)
+        {
+
+            this.context.genre.Update(genre);
+            await this.context.SaveChangesAsync();
+            return true;
+
+        }
+
+        public async Task<bool> Delete(Guid id)
+        {
+            var genre = this.context.genre.FirstAsync(x => x.Id == id);
+            this.context.Remove(genre);
+            await this.context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

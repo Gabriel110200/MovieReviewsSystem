@@ -1,4 +1,5 @@
 ﻿using MovieReview.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace MovieReview.IServices
 
         public Task<bool> Update(Movie movie);
 
-        public Task<bool> Delete(int id);
+        public Task<bool> Delete(Guid id);
 
 
 

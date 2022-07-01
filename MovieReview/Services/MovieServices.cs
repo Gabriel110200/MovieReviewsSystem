@@ -36,6 +36,23 @@ namespace MovieReview.Services
 
         }
 
+        public async Task<List<Movie>> movies()
+        {
+            return await this.context.movies.ToListAsync();
+        }
+
+
+        public async Task<bool> Update(Movie movie)
+        {
+            var newMovie = this.context.movies.Where(x => x.Id == movie.Id).First();
+
+            if (newMovie == null) throw new Exception("Movie not found!!");
+
+            this.context.Update(movie);
+            await this.context.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<bool> Delete(Guid id)
         {
 
@@ -55,9 +72,6 @@ namespace MovieReview.Services
             return await this.context.movies.ToListAsync();
         }
 
-        public Task<bool> Update(Movie movie)
-        {
-            throw new System.NotImplementedException();
-        }
+
     }
 }

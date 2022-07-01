@@ -30,6 +30,14 @@ namespace MovieReview.Models
                     .WithMany(m => m.Movies)
                     .HasForeignKey(g => g.GenreId);
 
+            builder.Entity<Movie>()
+                    .HasKey(x => x.Id);
+
+            builder.Entity<Genre>().HasKey(x => x.Id);
+
+
+
+
         }
 
     }

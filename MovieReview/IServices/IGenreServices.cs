@@ -12,11 +12,11 @@ namespace MovieReview.Interfaces
 
         public Task<Genre> Get(Guid id);
 
-        public Task<IActionResult> Create(Genre genre);
+        public Task<bool> Create(Genre genre);
 
-        public Task<IActionResult> Update(Genre genre);
+        public Task<bool> Update(Genre genre);
 
-        public Task<IActionResult> Delete(int id);
+        public Task<bool> Delete(Guid id);
 
 
 
