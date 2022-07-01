@@ -21,6 +21,10 @@ Functional Requirements:
 - categories determine which movies appear on the front page 
 
 
+## MVC Arquitecture 
+
+MovieReviews application doesn't require a lot of attention on front end, complexity only  lies  on the back end side of this application. Therefore, an
+MVC arquitecture seems to be the best option in this case. 
 
 Modelos devidamente configurados para o entity framework para não faltar nenhuma configuração adicional ou qualquer erro pelo entity,
 caso ocorra o crescimento  da aplicação.
