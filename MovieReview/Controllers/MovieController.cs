@@ -37,10 +37,10 @@ namespace MovieReview.Controllers
             return View(genres);
         }
 
-        public IActionResult Edit(Guid id)
+        public async Task<IActionResult> Edit(Guid id)
         {
 
-            this.movieServices.Get(id);
+            await this.movieServices.Get(id);
             var movie = this.context.movies.FirstOrDefaultAsync(x => x.Id == id);
 
             return View(movie);
@@ -50,17 +50,11 @@ namespace MovieReview.Controllers
         public async Task<IActionResult> Create(Movie movie)
         {
 
-
-
             try
             {
 
-
-
                 await this.movieServices.Create(movie);
-
                 return View();
-
 
             }
             catch (Exception ex)

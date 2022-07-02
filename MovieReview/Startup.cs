@@ -25,7 +25,10 @@ namespace MovieReview
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString")));
+            services.AddDbContext<AuthDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("AuthConnectionString"),
+            assembly => assembly.MigrationsAssembly(typeof(AuthDbContext).Assembly.FullName)
+            ));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
             services.AddScoped<IGenreServices, GenreServices>();
             services.AddScoped<IMovieServices, MovieServices>();
