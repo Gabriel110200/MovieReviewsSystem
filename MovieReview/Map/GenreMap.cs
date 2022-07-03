@@ -8,6 +8,8 @@ namespace MovieReview.Map
     {
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
+
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
@@ -16,6 +18,8 @@ namespace MovieReview.Map
 
             builder.Property(x => x.Description)
                     .HasColumnType("varchar(50)");
+
+
 
 
 

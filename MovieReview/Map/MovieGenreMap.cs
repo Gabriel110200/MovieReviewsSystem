@@ -8,6 +8,7 @@ namespace MovieReview.Map
     {
         public void Configure(EntityTypeBuilder<MovieGenre> builder)
         {
+
             builder.HasKey(pc => new { pc.MovieId, pc.GenreId });
 
             builder.HasOne(m => m.Movie)

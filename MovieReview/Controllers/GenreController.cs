@@ -23,9 +23,7 @@ namespace MovieReview.Controllers
 
         }
 
-        public GenreController()
-        {
-        }
+      
 
         // GET: GenreController
         public async Task<ActionResult> Index()

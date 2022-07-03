@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MovieReview.Models;
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieReview.Map
 {
@@ -8,12 +10,23 @@ namespace MovieReview.Map
     {
         public void Configure(EntityTypeBuilder<Movie> builder)
         {
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id)
+                   .ValueGeneratedOnAdd();
+
             builder.Property(x => x.Title)
                       .HasColumnType("varchar(70)")
                       .HasMaxLength(50);
 
+            builder.Property(x => x.ReleaseDate)
+                   .HasColumnType("date")
+                   .IsRequired();
+
             builder.Property(x => x.genres)
                    .IsRequired();
+
         }
     }
 }

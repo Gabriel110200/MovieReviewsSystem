@@ -8,15 +8,9 @@ namespace MovieReview.Models
     {
         public Guid Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
         public string Title { get; set; }
 
-        [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
-
-        [Range(0, 10000)]
-        public decimal Price { get; set; }
 
         public IEnumerable<MovieGenre> genres { get; set; }
 
