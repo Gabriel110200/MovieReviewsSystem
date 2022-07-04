@@ -12,7 +12,7 @@ namespace MovieReview.Map
             builder.HasKey(pc => new { pc.MovieId, pc.GenreId });
 
             builder.HasOne(m => m.Movie)
-                   .WithMany(g => g.genres)
+                   .WithMany(g => g.Genres)
                    .HasForeignKey(m => m.MovieId);
 
             builder.HasOne(g => g.Genre)

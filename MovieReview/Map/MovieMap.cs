@@ -24,8 +24,7 @@ namespace MovieReview.Map
                    .HasColumnType("date")
                    .IsRequired();
 
-            builder.Property(x => x.genres)
-                   .IsRequired();
+
 
         }
     }
