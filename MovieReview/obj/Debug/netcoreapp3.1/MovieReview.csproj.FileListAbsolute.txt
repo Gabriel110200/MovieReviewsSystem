@@ -769,3 +769,4 @@ C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razo
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\Movie\Edit.cshtml.g.cs
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\sidebar.cshtml.g.cs
+C:\Users\try11\source\repos\MovieReview\MovieReview\obj\Debug\netcoreapp3.1\Razor\Views\Movie\List.cshtml.g.cs
