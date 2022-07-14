@@ -5,15 +5,23 @@
 
 <form method="post">
 
-
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Nome</label>
       <input type="text" asp-for="Title" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
     <div class="mb-3">
-      <label for="date" class="form-label">Descrição</label>
+      <label for="date" class="form-label">Data de lançamento</label>
       <input type="date" id="date" asp-for="ReleaseDate"/>
     </div>
 
+    <h3>Gêneros:</h3>
+
+    @foreach(var genre in ViewBag.genres)
+    {
+        <label>@genre.Name</label>
+        <input type="checkbox" value="@genre.Id" />
+    }
+
     <input type="submit" />
+
 </form>

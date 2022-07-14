@@ -37,7 +37,9 @@ namespace MovieReview.Controllers
         {
             var genres = await genreServices.List();
 
-            return View(genres);
+            ViewBag.genres = genres;
+
+            return View();
         }
 
         [HttpGet("/[Controller]/[Action]/{id}")]
