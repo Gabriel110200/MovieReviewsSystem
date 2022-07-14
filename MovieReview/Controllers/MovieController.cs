@@ -25,9 +25,10 @@ namespace MovieReview.Controllers
 
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> List()
         {
-            return View();
+            var movies = await this.movieServices.List();
+            return View(movies);
         }
 
         public async Task<IActionResult> Create()
