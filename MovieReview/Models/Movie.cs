@@ -12,7 +12,7 @@ namespace MovieReview.Models
 
         public DateTime ReleaseDate { get; set; }
 
-        public IEnumerable<MovieGenre> Genres { get; set; }
+        public List<MovieGenre> Genres { get; set; }
 
     }
 }

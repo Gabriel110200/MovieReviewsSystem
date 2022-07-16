@@ -42,15 +42,7 @@ namespace MovieReview.Controllers
             return View();
         }
 
-        [HttpGet("/[Controller]/[Action]/{id}")]
-        public async Task<IActionResult> Edit(Guid id)
-        {
 
-            await this.movieServices.Get(id);
-            var movie = this.context.movies.FirstOrDefaultAsync(x => x.Id == id);
-
-            return View(movie);
-        }
 
         [HttpPost("/[Controller]/[Action]")]
         public async Task<IActionResult> Create(Movie movie)
@@ -68,6 +60,18 @@ namespace MovieReview.Controllers
                 throw ex;
             }
         }
+
+
+        [HttpGet("/[Controller]/[Action]/{id}")]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+
+            await this.movieServices.Get(id);
+            var movie = this.context.movies.FirstOrDefaultAsync(x => x.Id == id);
+
+            return View(movie);
+        }
+
 
         [HttpPut("[Controller]/[Action]")]
         public async Task<IActionResult> Update(Movie movie)

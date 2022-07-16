@@ -19,7 +19,7 @@
     @foreach(var genre in ViewBag.genres)
     {
         <label>@genre.Name</label>
-        <input type="checkbox" value="@genre.Id" />
+        <input type="checkbox" value="@genre.Id" asp-for="Genres[0]" />
     }
 
     <input type="submit" />
