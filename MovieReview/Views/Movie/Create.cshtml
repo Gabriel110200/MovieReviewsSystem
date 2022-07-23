@@ -3,7 +3,7 @@
 
 <h1>Movie Register</h1>
 
-<form method="post">
+<form method="post" id ="movie-form">
 
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Nome</label>
@@ -18,10 +18,12 @@
 
     @foreach(var genre in ViewBag.genres)
     {
-        <label>@genre.Name</label>
-        <input type="checkbox" value="@genre.Id" asp-for="Genres[0]" />
+        <label >@genre.Name</label>
+        <input type="checkbox" class="genres" value="@genre.Id"/>
     }
 
     <input type="submit" />
+
+    <div class="test" >teste</div>
 
 </form>

@@ -1,4 +1,37 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
 
-// Write your JavaScript code.
+$(document).ready(function () {
+
+
+
+
+    $(".test").click(() => {
+        let data = $('#movie-form').serialize();
+        console.log(data);
+
+        let genres = [];
+        console.log($(".genres"));
+
+        $(".genres").each((index) => {
+
+            console.log($(this).val());
+           // genres.push($(this).val());
+
+        })
+       // console.log(genres);
+
+    })
+
+   // console.log()
+
+
+    /*
+    $.ajax({
+        url: window.location.href + '/movie/cerate',
+        method: "POST"
+        
+
+    });*/
+
+
+})
