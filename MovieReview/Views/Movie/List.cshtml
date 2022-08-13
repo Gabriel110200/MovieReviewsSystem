@@ -14,16 +14,13 @@
   <tbody>
 
       @foreach(var movie in Model)
-        {
-            
-       
-    <tr>
-      <th scope="row">1</th>
-      <td>movie.Title</td>
-      <td>movie.ReleaseDate</td>
-      <td></td>
-    </tr>
-  
-     }
+      {
+         <tr>
+             <th scope="row">1</th>
+             <td>@movie.Title</td>
+             <td>@movie.ReleaseDate</td>
+             <td><a asp-route-id="@movie.Id" asp-action="Delete" asp-controller="Movie"><i class="bi bi-trash-fill"></i></a></td>
+        </tr>
+      }
   </tbody>
 </table>

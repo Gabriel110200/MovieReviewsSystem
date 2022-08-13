@@ -46,7 +46,9 @@ namespace MovieReview.Services
 
         public async Task<List<Movie>> List()
         {
+
             return await this.context.movies.ToListAsync();
+
         }
 
 

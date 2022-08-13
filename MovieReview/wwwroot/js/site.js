@@ -1,84 +1,66 @@
-﻿
-
-document.addEventListener("DOMContentLoaded",function (e) {
+﻿document.addEventListener("DOMContentLoaded", function (e) {
 
 
-    let teste =  document.querySelector(".test")
-   
-    teste.addEventListener('click', () => {
+    document.querySelector(".test").addEventListener("click", () => {
+      
+        sendData();
 
 
-        let form = document.getElementById("movie-form");
-    
+    });
+
+
+    function sendData() {
+
+
+        let form = document.getElementById("movie-form"); //$('#movie-form')
+
         let data = new FormData(form); //serialize 
 
-        let genres = document.querySelectorAll(".genres");
+        let genres = document.querySelectorAll(".genres"); //array de dom com inputs
 
-        data.append('genreId', genre.value);
+        let activeGenres = [];
+        let cont = 0;
+        for (genre of genres) {
+
+            if (genre.checked) {
+
+                //activeGenres.push({ "GenreId": genre.value });
+                data.append('Genres[' + cont + '].GenreId', genre.value);
+                cont++;
+            }
+
+        }
 
 
-        /*
-        for (genre of genres)
-        {
-            data.append('genreId', genre.value);
-        }*/
-       
-     
-        
-        console.log(data);
+        //data.append('Genres', JSON.stringify(activeGenres));  //genre.val()
 
 
-        for (const pair of data.entries())
-        {
+        //console.log("CHECKBOX GENRE");
+
+        //console.log(activeGenres);
+
+        //console.log("");
+
+
+
+        for (const pair of data.entries()) {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
 
 
 
-          /*
-        console.log(data.get('Title'));
-        console.log()
+        //ajax post
+        let url = window.location.href;
 
 
-      
-
-        let data = document.querySelector('#movie-form').serializeArray();
-
-
-
-        let genres = [];
-
-        let allGenres = document.querySelectorAll(".genres");
-
-        console.log(allGenres); */
-
-
-        /*
-
-        $(".genres").each((index,element) => {
-
-            genres.push($(element).val());
-
+        
+        fetch(url, {
+            method: 'post',
+            body: data
         }) 
 
-        data.push(genres);
+    }
 
-        console.log(data);*/
-
-        
-
-    })
-
-   // console.log()
-
-
-    /*
-    $.ajax({
-        url: window.location.href + '/movie/cerate',
-        method: "POST"
-        
-
-    });*/
 
 
 })

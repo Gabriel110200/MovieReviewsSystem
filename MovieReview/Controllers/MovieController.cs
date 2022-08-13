@@ -29,6 +29,7 @@ namespace MovieReview.Controllers
         public async Task<IActionResult> List()
         {
             var movies = await this.movieServices.List();
+       
             return View(movies);
         }
 
@@ -43,7 +44,6 @@ namespace MovieReview.Controllers
         }
 
 
-
         [HttpPost("/[Controller]/[Action]")]
         public async Task<IActionResult> Create(Movie movie)
         {
@@ -52,7 +52,7 @@ namespace MovieReview.Controllers
             {
 
                 await this.movieServices.Create(movie);
-                return View();
+                return RedirectToAction("List");
 
             }
             catch (Exception ex)
@@ -91,14 +91,14 @@ namespace MovieReview.Controllers
 
         }
 
-        [HttpPost("[Controller]/[Action]")]
-        public IActionResult Delete(Movie movie)
+        [HttpPost("[Controller]/[Action]/{id}")]
+        public IActionResult Delete(Guid id)
         {
 
             try
             {
 
-                this.context.movies.Remove(movie);
+                //this.context.movies.Remove(id);
 
                 return View();
 

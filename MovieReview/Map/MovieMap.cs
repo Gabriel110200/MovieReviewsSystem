@@ -18,7 +18,8 @@ namespace MovieReview.Map
 
             builder.Property(x => x.Title)
                       .HasColumnType("varchar(70)")
-                      .HasMaxLength(50);
+                      .HasMaxLength(50)
+                      .IsRequired();
 
             builder.Property(x => x.ReleaseDate)
                    .HasColumnType("date")

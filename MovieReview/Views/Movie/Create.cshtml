@@ -1,9 +1,8 @@
-﻿
-@model Movie;
+﻿@model Movie;
 
 <h1>Movie Register</h1>
 
-<form method="post" id ="movie-form">
+<form method="post" id ="movie-form"  >
 
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Nome</label>
@@ -22,8 +21,12 @@
         <input type="checkbox" class="genres" value="@genre.Id"/>
     }
 
-    <input type="submit" />
+    @*<input asp-for="Genres[0].GenreId" value="1e621f8b-cf12-4209-9c12-a059325ce5c3"/>*@
 
-    <div class="test" >teste</div>
+    @*<input type="submit" />*@
+
+    <div class="test">teste</div>
 
 </form>
+
+

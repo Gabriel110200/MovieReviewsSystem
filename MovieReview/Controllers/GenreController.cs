@@ -26,7 +26,7 @@ namespace MovieReview.Controllers
       
 
         // GET: GenreController
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> List()
         {
 
             var genreList = await context.genre.ToListAsync();
