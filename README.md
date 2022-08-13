@@ -12,13 +12,13 @@ Abstract dependencies makes classes more independent.
 
 ## Summary of Requirements 
 
-Functional Requirements: 
-- Users should be able to log in,register, manage profile 
-- Users should be able to comment for each movie 
-- Movies could be rated by users 
-- Movies devided by genre and categories 
-- categories should be managed by admins 
-- categories determine which movies appear on the front page 
+
+Requirements: 
+- Users should be able to log in and register. 
+- Movies shouble devided by genre and categories 
+- Movies can be registered, updated, listed and deleted
+- Genres can be registered, updated, listed and deleted
+
 
 
 ## MVC Arquitecture 
